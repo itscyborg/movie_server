@@ -10,8 +10,9 @@ const CHAT_ID = '-1001503592816';
 router.post('/send-telegram-message', async (req, res) => {
     try {
 
-        const { title } = req.body;
-        const message = `link ${title}`;
+        const { title, year } = req.body;
+        console.log(req.body.year)
+        const message = `link ${title} ${year}`;
         const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(message)}`;
 
         await axios.post(url);
@@ -25,7 +26,6 @@ router.post('/send-telegram-message', async (req, res) => {
 
 router.get('/get-latest-telegram-message', async (req, res) => {
     try {
-        const { BOT_TOKEN, CHAT_ID } = process.env;
         const latestMessageText = await getLatestTelegramMessage(BOT_TOKEN, CHAT_ID);
 
         if (latestMessageText !== null) {
