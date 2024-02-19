@@ -4,7 +4,7 @@ const router = express.Router();
 require('dotenv').config();
 
 
-const BOT_TOKEN = '6511500869:AAEf8YU8v1Dpduh6z4W0S7k9h9o1Oi2MeWU';
+const BOT_TOKEN = '6758489560:AAEtDBrbnKwkgF2E49cr6IsJVLA2RSc5Sjs';
 const CHAT_ID = '-1001503592816';
 
 router.post('/send-telegram-message', async (req, res) => {
